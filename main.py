@@ -14,7 +14,6 @@ if __name__ == '__main__':
 	recombination = order_cross
 	mutation = muta_swap
 	sel_survivors = sel_survivors_elite(k_elite)
-	#metric = hamming_distance
 
 	numb_runs = 1
 
