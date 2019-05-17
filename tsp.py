@@ -4,7 +4,7 @@ Ernesto Costa, February 2017
 """
 import os
 from sea_perm import *
-from utils import *
+#from utils import *
 from math import sqrt
 
 # interface
