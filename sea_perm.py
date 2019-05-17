@@ -25,10 +25,14 @@ def run(numb_runs,numb_generations,size_pop,size_cromo,prob_mut,prob_cross,sel_p
 	
 def run_for_file(filename,numb_runs,numb_generations,size_pop, size_cromo, prob_mut,prob_cross,sel_parents,recombination,mutation,sel_survivors, fitness_func):
 	with open(filename,'w') as f_out:
+		sum = 0
 		for i in range(numb_runs):
+			print("Run#: "+str(i+1))
 			best= sea_perm(numb_generations,size_pop, size_cromo, prob_mut, prob_cross,sel_parents,recombination,mutation,sel_survivors, fitness_func)
+			sum = sum + best[1]
 			f_out.write(str(best[1])+'\n')
-
+		sum = sum/numb_runs
+		f_out.write('Média: '+str(sum)+'\n')
 
 # Simple [permutation] Evolutionary Algorithm		
 def sea_perm(numb_generations,size_pop, size_cromo, prob_mut,prob_cross,sel_parents,recombination,mutation,sel_survivors, fitness_func):
