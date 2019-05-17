@@ -151,20 +151,8 @@ def muta_shift(cromo, prob_muta):
 	if random() < prob_muta:
 		comp = len(cromo) - 1
 
-		i = randint(0,comp)
-		j = randint(0,comp)
-		while i == j:
-			i = randint(0, comp)
-			j = randint(0, comp)
-		if i < j:
-			begin = cromo[:i]
-			middle = cromo[i:j+1]
-			end = cromo[j+1:]
-		else:
-			begin = cromo[:j]
-			middle = cromo[j:i+1]
-			end = cromo[i+1:]
-		cromo = end + begin + middle
+		#1bit shift right
+		cromo = cromo[comp] + cromo[:comp]
 
 		return cromo
 	return cromo
