@@ -1,4 +1,5 @@
 from tsp import *
+from n_queens import *
 import time
 from utils import *
 #from stats import *
@@ -19,14 +20,21 @@ if __name__ == '__main__':
 
 	numb_runs = 30
 
+	'''
 	coord = le_coordenadas_tsp('uy734.tsp')
 	dicio = dicio_cidades(coord)
 	meu_merito = merito(dicio)
 	fitness_func = meu_merito
 	size_cromo = len(dicio)
+	'''
+	size_problem = 150
+
+	meu_merito = merito()
+	fitness_func = meu_merito
+	size_cromo = size_problem
 
 
-	filename = str(numb_generations)+'_'+str(size_pop)+'_'+str(prob_mut)+'_'+str(prob_cross)+'_'+str(k_tour)+'_'+str(k_elite)+'inversionmutation.txt'
+	filename = str(numb_generations)+'_'+str(size_pop)+'_'+str(prob_mut)+'_'+str(prob_cross)+'_'+str(k_tour)+'_'+str(k_elite)+'inversionmutation_nqueens.txt'
 	filename = 'data/'+filename
 
 	run_for_file(filename,numb_runs,numb_generations-1,size_pop,size_cromo,prob_mut,prob_cross,sel_parents,recombination,mutation,sel_survivors,fitness_func)

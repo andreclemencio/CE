@@ -41,6 +41,7 @@ def sea_perm(numb_generations,size_pop, size_cromo, prob_mut,prob_cross,sel_pare
 	# evaluate population
 	populacao = [(indiv[0], fitness_func(indiv[0])) for indiv in populacao]
 	for i in range(numb_generations):
+		#print("Generation#: "+str(i+1))
 		# sparents selection
 		mate_pool = sel_parents(populacao)
 	# Variation
