@@ -41,6 +41,7 @@ def sea_perm(numb_generations,size_pop, size_cromo, prob_mut,prob_cross,sel_pare
 	# evaluate population
 	populacao = [(indiv[0], fitness_func(indiv[0])) for indiv in populacao]
 	for i in range(numb_generations):
+		#print("Generation#: "+str(i+1))
 		# sparents selection
 		mate_pool = sel_parents(populacao)
 	# Variation
@@ -82,7 +83,7 @@ def sea_perm_for_plot(numb_generations,size_pop, size_cromo, prob_mut,prob_cross
 		for i in  range(0,size_pop-1,2):
 			indiv_1= mate_pool[i]
 			indiv_2 = mate_pool[i+1]
-			filhos = recombination(indiv_1,indiv_2, prob_cross)
+			filhos = recombination(indiv_1,indiv_2,prob_cross)
 			progenitores.extend(filhos) 
 		# ------ Mutation
 		descendentes = []
@@ -130,6 +131,7 @@ def muta_swap(cromo,prob_muta):
 def muta_inversion(cromo,prob_muta):
 	if random() < prob_muta:
 		comp = len(cromo) - 1
+		copia = cromo[:]
 
 		i = randint(0,comp)
 		j = randint(0,comp)
@@ -139,27 +141,18 @@ def muta_inversion(cromo,prob_muta):
 
 		inversion = []
 		if i < j:
-			inversion = cromo[i:j+1]
+			inversion = copia[i:j+1]
+			inversion = inversion[::-1]
+			copia = copia[:i] + inversion + copia[j+1:]
+
 		else:
-			inversion = cromo[j:i+1]
-
-		inversion = inversion[::-1]
-
-		cromo = cromo[:i] + inversion + cromo[j+1:]
-
+			inversion = copia[j:i+1]
+			inversion = inversion[::-1]
+			copia = copia[:j] + inversion + copia[i+1:]
+		
+		return copia
+	else:
 		return cromo
-	return cromo
-
-#Shift mutation (not sure)
-def muta_shift(cromo, prob_muta):
-	if random() < prob_muta:
-		comp = len(cromo) - 1
-
-		#1bit shift right
-		cromo = cromo[comp] + cromo[:comp]
-
-		return cromo
-	return cromo
 
 
 def muta_scramble(indiv, prob_muta):
