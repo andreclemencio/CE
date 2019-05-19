@@ -14,7 +14,7 @@ if __name__ == '__main__':
 	sel_parents = tour_sel(k_tour)
 	recombination = order_cross
 	#Change variables mutation here
-	mutation = muta_inversion
+	mutation = muta_swap
 
 	sel_survivors = sel_survivors_elite(k_elite)
 
@@ -34,7 +34,7 @@ if __name__ == '__main__':
 	size_cromo = size_problem
 
 
-	filename = str(numb_generations)+'_'+str(size_pop)+'_'+str(prob_mut)+'_'+str(prob_cross)+'_'+str(k_tour)+'_'+str(k_elite)+'inversionmutation_nqueens.txt'
+	filename = str(numb_generations)+'_'+str(size_pop)+'_'+str(prob_mut)+'_'+str(prob_cross)+'_'+str(k_tour)+'_'+str(k_elite)+'swapmutation_nqueens.txt'
 	filename = 'data/'+filename
 
 	run_for_file(filename,numb_runs,numb_generations-1,size_pop,size_cromo,prob_mut,prob_cross,sel_parents,recombination,mutation,sel_survivors,fitness_func)
