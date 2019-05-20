@@ -97,5 +97,9 @@ def levene(swap, inversion, scramble):
 def kruskalwallis(swap, inversion, scramble):
     output = stats.kruskal(swap,inversion,scramble)
     
+def mann_whitney(data1, data2):
+    return stats.mannwhitneyu(data1, data2)
+
+    
 if __name__ == '__main__':
     pass

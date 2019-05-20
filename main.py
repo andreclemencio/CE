@@ -118,5 +118,11 @@ if __name__ == '__main__':
 	
 	#Kruskal-Wallis
 	print(stats.kruskal(swap_tsp_data, inversion_tsp_data, scramble_tsp_data))
+	#Concluido estes passos podemos concluir que existem diferenças estatisticas significativas entre os operadores de mutação no TSP (rejeitamos H0)
+	#Agora vamos agrupar dois em dois e testar qual tem o melhor desempenho através do teste de Mann-Whitney
+	#Para isso, e de maneira manter a mesma probabilidade global de erros de tipo I, temos de corrigir o valor de alfa recorrendo à  Correção de Bonferroni (alfa/3)
+	
+	
+	
 	
 	
