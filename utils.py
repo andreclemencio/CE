@@ -96,7 +96,8 @@ def levene(swap, inversion, scramble):
 #Kruskal-Wallis
 def kruskalwallis(swap, inversion, scramble):
     output = stats.kruskal(swap,inversion,scramble)
-    
+
+#Mann Whitney
 def mann_whitney(data1, data2):
     return stats.mannwhitneyu(data1, data2)
 
